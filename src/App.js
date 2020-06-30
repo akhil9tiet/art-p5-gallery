@@ -1,17 +1,16 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { ReactComponent as Logo } from './logo.svg';
 import './App.css';
 
 const Comp = () => {
 	const ref = useRef();
-	var styles;
+	const [offset, setOffset] = useState(0);
+
 	const handleScroll = () => {
 		const posY = ref.current.getBoundingClientRect().top;
-		const offset = window.pageYOffset - posY;
-		styles = {
-			transform: `rotate(${offset}deg)`,
-		};
-		console.log(offset);
+		// const offset = window.pageYOffset - posY;
+		setOffset(window.pageYOffset - posY);
+		// console.log(offset);
 	};
 
 	useEffect(() => {
@@ -23,8 +22,8 @@ const Comp = () => {
 	});
 
 	return (
-		<div style={{ height: '200vh' }} ref={ref}>
-			<Logo className='logo' style={styles} height='250px' />
+		<div style={{ height: '2000vh' }} ref={ref}>
+			<Logo className='logo' style={{ transform: `rotate(${Math.abs(offset / 20)}deg)` }} height='250px' />
 			{/* <p>
 				Yet bed any for travelling assistance indulgence unpleasing. Not thoughts all exercise blessing.
 				Indulgence way everything joy alteration boisterous the attachment. Party we years to order allow asked

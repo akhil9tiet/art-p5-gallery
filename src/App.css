@@ -1,16 +1,19 @@
 svg {
 	position: fixed;
 	margin: 20px !important;
-	animation: rotation 100s infinite linear;
+	transition: transform 20ms ease-in-out;
+	/* fill: linear-gradient(#e66465, #9198e5); */
+	fill: #4b5320;
+	/* animation: rotation 100s infinite linear; */
 }
-@keyframes rotation {
+/* @keyframes rotation {
 	from {
 		transform: rotate(0deg);
 	}
 	to {
 		transform: rotate(359deg);
 	}
-}
+} */
 
 .logo {
 	align-items: center;
